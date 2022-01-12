@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinner Planner</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            What would you like to drink today?
+        </h1>
+    </header>
+    <div>
+        <div>
+            <!--search by ingredient card-->
+            <h2>Search by Ingredient</h2>
+            <form>
+                <label>What ingredient do you have?</label>
+                <input type="text" placeholder="rum">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <!--Search by ingredient end-->
+
+        <div>
+            <!--search by NAME card-->
+            <h2>Search by Drink name</h2>
+            <form>
+                <label>What is the name of the drink?</label>
+                <input type="text" placeholder="rum">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <!--Search by NAME end-->
+
+        <div>
+            <!--search by Random card-->
+            <h2>Get a random drink</h2>
+            <form>
+                <label>What drink will you get?</label>
+                <button id= "randomSearchButton" type="submit">Random</button>
+            </form>
+        </div>
+        <!--Search by random end-->
+    </div>
+
+    <div> <!--Search results container-->
+        <div id="resultantDrink">
+            
+        </div>
+
+    </div>
+
+
+
+    <script src="./assets/js/script-drinks-page.js"></script>
+</body>
+
+</html>
