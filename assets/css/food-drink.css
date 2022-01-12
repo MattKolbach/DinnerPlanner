@@ -30,6 +30,7 @@ header {
 #card-container {
     display:flex;
     justify-content:space-around;
+    flex-wrap:wrap;
 }
 
 #card {
@@ -41,26 +42,36 @@ header {
     padding-top: 30px;
     padding-bottom: 30px;
     align-items:center;
+    
 }
 
 #card-input {
     background-color:var(--color1);
     border-radius:5px;
-    height: 250px;
+    padding: 3px 3px 3px 3px;
+    height: 150px;
+    width: 0 auto;
     overflow:hidden;
     display:inline-block;
     text-align:center;
-    flex-wrap:wrap;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
 }
 form {
     align-items:center;
+    vertical-align:middle;
+    justify-content:space-between;
 }
 
 #btn-txt {
     font-family:Arial, Helvetica, sans-serif;
     color:white;
 }
-
+#txtbx {
+    margin:auto;
+    margin-top:5px;
+    margin-bottom:5px;
+    
+}
 #submit-btn {
     border-radius: 5em;
     
@@ -68,7 +79,6 @@ form {
 
 #randomSearchButton {
     position:relative;
-    align-self: center;
     border-radius: 5em;
 }
 
