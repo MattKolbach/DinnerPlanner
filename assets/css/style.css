@@ -8,6 +8,7 @@
     color: white;
     font-weight: 400;
     font-size: 120%;
+    font-family: 'Abel', 'Open Sans', sans-serif;
 }
 .home-menu .pure-menu-selected a {
     color: white;
@@ -37,7 +38,8 @@
     text-align: center;
 }
 .intro h1 {
-    font-size: 50px;
+    font-size: 70px;
+    font-family: 'Abel', 'Open Sans', sans-serif;
 }
 .intro p {
     font-size: 20px;
@@ -67,4 +69,15 @@
 .library-list-items ul {
     list-style: none;
     line-height: 30px;
+}
+
+/* MEDIA QUERY FOR PHONE */
+@media screen and (max-width: 575px) {
+    .home-menu .pure-menu-heading {
+        display: block;
+    }
+    .home-button-container {
+        display: block;
+        padding-left: 35px;
+    }
 }
