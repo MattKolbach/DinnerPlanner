@@ -1,0 +1,30 @@
+#card-container {
+    justify-content:space-around;
+}
+
+#card {
+    display:flex;
+    justify-content:space-around;
+    background-color:azure;
+    border: 5px, solid, black;
+    height: 325px;
+    align-items:center;
+}
+
+#card-input {
+    background-color:gray;
+    border-radius:5px;
+    justify-items:center;
+    height: 250px;
+    overflow:hidden;
+}
+
+#submit-btn {
+    border-radius: 5em;
+}
+
+#randomSearchButton {
+    position:relative;
+    align-self: center;
+    border-radius: 5em;
+}
