@@ -6,7 +6,7 @@ const resultantDrinkEl = document.getElementById("resultantDrink");
 const getRandomDrinkHandler = function (event) {
   event.preventDefault();
   resultantDrinkEl.innerHTML = "";
-  console.log("button click worked");
+  //console.log("button click worked");
   const randomDrinkURL =
     "https://www.thecocktaildb.com/api/json/v1/1/random.php";
   console.log(randomDrinkURL);
@@ -18,25 +18,26 @@ const getRandomDrinkHandler = function (event) {
         const drink = data.drinks[0]
         const resultantDrinkName = document.createElement("h3");
         const resultantDrinkGlass = document.createElement("p");
-        const resultantDrinkInstructions = document
+        const resultantDrinkInstructions = document.createElement("p");
 
         resultantDrinkName.textContent = `${drink.strDrink}`;
         resultantDrinkGlass.textContent = `${drink.strGlass}`;
+        resultantDrinkInstructions.textContent = `${drink.strInstructions}`;
 
-        resultantDrinkEl.append(resultantDrinkName, resultantDrinkGlass);
+        resultantDrinkEl.append(resultantDrinkName, resultantDrinkGlass, resultantDrinkInstructions);
 
-        console.log(drink);
+        //console.log(drink);
         for (let i = 1; i < 16; i++) {
             let ingredient = drink[`strIngredient${i}`];//drink @ key
             let measure = drink[`strMeasure${i}`];
             if (ingredient) {
-                console.log(ingredient);
+                //console.log(ingredient);
                 const resultantDrinkIngredient = document.createElement("p");
                 resultantDrinkIngredient.textContent = ingredient;
                 resultantDrinkEl.append(resultantDrinkIngredient);
             }
             if (measure) {
-                console.log(measure);
+                //console.log(measure);
                 const resultantDrinkMeasure = document.createElement("p");
                 resultantDrinkMeasure.textContent = measure;
                 resultantDrinkEl.append(resultantDrinkMeasure);
