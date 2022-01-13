@@ -18,6 +18,7 @@ const getRandomDrinkHandler = function (event) {
         const drink = data.drinks[0]
         const resultantDrinkName = document.createElement("h3");
         const resultantDrinkGlass = document.createElement("p");
+        const resultantDrinkInstructions = document
 
         resultantDrinkName.textContent = `${drink.strDrink}`;
         resultantDrinkGlass.textContent = `${drink.strGlass}`;
