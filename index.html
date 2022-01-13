@@ -1,17 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinner Planner</title>
+    <title>Dinner Party Planner</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Open+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    
 
+    <!-- header -->
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal">
+            <a class="pure-menu-heading" href="">Dinner Party Planner</a>
 
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="./library.html" class="pure-menu-link">View Your Library</a></li>
+                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                    <a href="#" class="pure-menu-link">The Developers</a>
+                    <ul class="pure-menu-children">
+                        <li class="pure-menu-item">
+                            <a href="#" class="pure-menu-link">Lindsey</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="#" class="pure-menu-link">Matt</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="#" class="pure-menu-link">Cole</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="#" class="pure-menu-link">Brett</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-    <script src="./assets/js/script.js"></script> 
+    <!-- main content -->
+    <main>
+        <div class="intro">
+            <h1>Get the Party Started!</h1>
+            <p>
+                Welcome to the Dinner Party Planner! <br> <br>
+                We know how crazy it can get when it comes to planning the perfect dinner party for friends.
+                There are so many options for food and drinks! So we made it simple.
+                Choose either a drink or dinner to get started.
+            </p>
+        </div>
+
+        <div class="home-button-container">
+            <button class="home-button">
+                <a href="#">
+                    <h2>Find Drinks</h2>
+                </a>
+            </button>
+
+            <button class="home-button">
+                <a href="#">
+                    <h2>Find Dinners</h2>
+                </a>
+            </button>
+        </div>
+    </main>
+
+    <!-- script -->
+    <script src="./assets/js/script.js"></script>
+
 </body>
+
 </html>
