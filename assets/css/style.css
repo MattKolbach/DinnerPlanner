@@ -1,0 +1,83 @@
+/* NAVIGATION BAR */
+.home-menu {
+    padding: 0.5em;
+    text-align: left;
+    background: black;
+}
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+    font-family: 'Abel', 'Open Sans', sans-serif;
+}
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+.home-menu a {
+    color: white;
+}
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: black;
+    border: none;
+    color: turquoise;
+}
+.pure-menu-children {
+    background-color: black;
+    color: white;
+}
+.pure-menu-heading:hover {
+    font-weight: bold;
+    color: turquoise;
+}
+
+/* HOMEPAGE */
+.intro {
+    width: 60%;
+    margin: 30px auto;
+    text-align: center;
+}
+.intro h1 {
+    font-size: 70px;
+    font-family: 'Abel', 'Open Sans', sans-serif;
+}
+.intro p {
+    font-size: 20px;
+}
+.home-button-container {
+    display: flex;
+    justify-content: center;
+}
+.home-button {
+    background-color: black;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    width: 400px;
+}
+.home-button:hover {
+    background-color: turquoise;
+    border: 1px solid turquoise;
+}
+.home-button a {
+    text-decoration: none;
+    color: white;
+}
+
+/* LIBRARY */
+.library-list-items ul {
+    list-style: none;
+    line-height: 30px;
+}
+
+/* MEDIA QUERY FOR PHONE */
+@media screen and (max-width: 575px) {
+    .home-menu .pure-menu-heading {
+        display: block;
+    }
+    .home-button-container {
+        display: block;
+        padding-left: 35px;
+    }
+}
