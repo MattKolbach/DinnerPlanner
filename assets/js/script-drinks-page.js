@@ -1,11 +1,14 @@
 const randomSearchButton = document.querySelector("#randomSearchButton");
 const resultantDrinkEl = document.getElementById("resultantDrink");
+const ingredientSearchButton = document.querySelector("#ingredientSearchButton");
+const userIngredientEl = document.querySelector("#userIngredient");
+const searchResultsEl = document.getElementById("searchResults");
 ////////// Global variables above //////////
 
 ///// Random Drink API call /////
 const getRandomDrinkHandler = function (event) {
   event.preventDefault();
-  resultantDrinkEl.innerHTML = "";
+  resultantDrinkEl.innerHTML = "";//clears previous drink result
   //console.log("button click worked");
   const randomDrinkURL =
     "https://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -48,4 +51,44 @@ const getRandomDrinkHandler = function (event) {
   });
 };
 
+/////  Drink by ingredient API call  /////
+const drinkByIngredientHandler = function(event) {
+  event.preventDefault();
+  resultantDrinkEl.innerHTML = "";//clears previous drink result
+  //console.log("button click worked");
+  const userIngredient = userIngredientEl.value.trim();
+  userIngredientEl.value = "";//clears input field
+  const userIngredientURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + userIngredient;
+  fetch(userIngredientURL).then(function(response) {
+    if (response.ok) {
+      response.json().then(function(data) {
+        console.log("data:");
+        console.log(data);
+        const drinksArrayLength = data.drinks.length;
+        console.log(drinksArrayLength);
+        for (let i = 0; i < drinksArrayLength; i++) {
+          let newDrinkButton = document.createElement("button");
+          newDrinkButton.type = "submit";
+          newDrinkButton.className = "pure-button";
+          newDrinkButton.innerText = data.drinks[i].strDrink;
+          newDrinkButton.dataset.id = data.drinks[i].idDrink;
+
+          searchResultsEl.append(newDrinkButton);
+ 
+        }
+      })
+    }
+  })
+}
+
+/////  drink button factory  /////
+/*const drinkButtonFactory = function() {
+  const drinkResultEl = document.createElement("button");
+  drinkResultEl.type = "submit";//adds type to button
+  drinkResultEl.className = "pure-button"; //adds class to button
+  drinkResultEl.innerText = 
+}*/
+
+
 randomSearchButton.addEventListener("click", getRandomDrinkHandler);
+ingredientSearchButton.addEventListener("click", drinkByIngredientHandler);

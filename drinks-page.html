@@ -41,8 +41,8 @@
                 <h2>Search by Ingredient</h2>
                 <form class="pure-form pure-form-stacked">
                     <label id="btn-txt">What ingredient do you have?</label>
-                    <input id="txtbx" type="text" placeholder="rum">
-                    <button class="pure-button" id="submit-btn" type="submit">Search</button>
+                    <input id="userIngredient" type="text" placeholder="rum">
+                    <button class="pure-button" id="ingredientSearchButton" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -75,7 +75,15 @@
         <!--Search by random end-->
     </div>
 
-    <div> <!--Search results container-->
+
+    <div> <!-- Drink search button container -->
+        <div id="searchResults">
+            <button class="pure-button" type="submit" data-id="16333"></button>
+
+        </div>
+    </div>
+
+    <div> <!--Resultant drink container-->
         <div id="resultantDrink">
             
         </div>
