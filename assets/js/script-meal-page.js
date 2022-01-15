@@ -1,6 +1,30 @@
 const randomSearchButton = document.querySelector("#randomSearchButton");
 const resultantFoodEl = document.getElementById("resultantFood");
 
+const searchButton = document.querySelector("#submit-btn");
+const cuisineName = document.querySelector("#txtbx");
+
+const getCuisineHandler = function (event) {
+  event.preventDefault();
+  resultantFoodEl.innerHTML = "";
+  console.log("this one works");
+  const cuisineFoodUrl =
+  "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + cuisineName
+  console.log(cuisineFoodUrl);
+  fetch(cuisineFoodUrl).then(function(data) {
+      if(response.ok) {
+          console.log(data);
+          const food = data.meals[0]
+          const resultantFoodName = document.createElement("h3");
+          const resultantFoodPlace = document.createElement("p");
+
+          resultantFoodName.textContent = `${food.strMeal}`;
+          resultantFoodPlace.textContent = `${food.strArea}`;
+      }
+  })
+}
+
+
 
 
 const getRandomFoodHandler = function (event) {
@@ -25,21 +49,21 @@ const getRandomFoodHandler = function (event) {
                 resultantFoodEl.append(resultantFoodName, resultantFoodArea);
 
                 console.log(food);
-                for (let i = 1; 1 < 20; i++) {
-                    let ingredient = food[`strIngredient${i}`];
-                    let measure = food[`strMeasure${i}`];
-                    if (ingredient) {
-                        console.log(ingredient);
-                        const resultantFoodIngredient = document.createElement("p");
-                        resultantFoodIngredient.textContent = ingredient;
-                        resultantFoodEl.append(resultantFoodIngredient);
-                    }
-                    if (measure) {
-                        console.log(measure);
-                        const resultantFoodMeasure = document.createElement("p");
-                        resultantFoodMeasure.textContent = measure;
-                        resultantFoodEl.append(resultantFoodMeasure);
-                    }
+                for (let i = 1; 1 < 100; i++) {
+                  let ingredient = food[`strIngredient${i}`];
+                  let measure = food[`strMeasure${i}`];
+                  if (ingredient) {
+                    console.log(ingredient);
+                    const resultantFoodIngredient = document.createElement("p");
+                    resultantFoodIngredient.textContent = ingredient;
+                    resultantFoodEl.append(resultantFoodIngredient);
+                  }
+                  if (measure) {
+                    console.log(measure);
+                    const resultantFoodMeasure = document.createElement("p");
+                    resultantFoodMeasure.textContent = measure;
+                    resultantFoodEl.append(resultantFoodMeasure);
+                  }
                 }
 
             });
