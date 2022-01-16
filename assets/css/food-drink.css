@@ -66,13 +66,18 @@ form {
     font-family:Arial, Helvetica, sans-serif;
     color:white;
 }
-#txtbx {
+#searchByArea {
     margin:auto;
     margin-top:5px;
     margin-bottom:5px;
     
 }
-#submit-btn {
+#submit-btn1 {
+    border-radius: 5em;
+    
+}
+
+#searchByAreaButton {
     border-radius: 5em;
     
 }
