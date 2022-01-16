@@ -6,6 +6,8 @@ const resultantFoodEl = document.getElementById("resultantFood");
 const searchByAreaButton = document.querySelector("#searchByAreaButton");
 const searchAreaEl = document.querySelector("#searchByArea");
 
+var meals = []
+
 
 
 
@@ -84,6 +86,10 @@ const fillResults = function (data) {
     };
   };
 };
+
+var saveToMealSearchHistory = function () {
+  localStorage.setItem("dinners", JSON.stringify(meals)) // saves to local storage
+}
 
 randomSearchButton.addEventListener("click", getRandomFoodHandler);
 searchByAreaButton.addEventListener("click", getCuisineHandler);

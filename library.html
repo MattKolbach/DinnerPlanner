@@ -8,6 +8,7 @@
     <title>Dinner Party Planner</title>
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
         integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Open+Sans:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -15,52 +16,61 @@
 
 <body>
 
-    <!-- header -->
-    <div class="header">
+    <!-- header and nav -->
+    <nav class="header">
         <div class="home-menu pure-menu pure-menu-horizontal">
             <a class="pure-menu-heading" href="./index.html">Dinner Party Planner</a>
-
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="./library.html" class="pure-menu-link">View Your Library</a></li>
-                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                    <a href="#" class="pure-menu-link">The Developers</a>
-                    <ul class="pure-menu-children">
-                        <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link">Lindsey</a>
-                        </li>
-                        <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link">Matt</a>
-                        </li>
-                        <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link">Cole</a>
-                        </li>
-                        <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link">Brett</a>
-                        </li>
-                    </ul>
+                <li class="pure-menu-item">
+                    <a href="./library.html" class="pure-menu-link">View Your Library</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="./drinks-page.html" class="pure-menu-link">Find Drinks</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="./food-page.html" class="pure-menu-link">Find Dinners</a>
                 </li>
             </ul>
         </div>
-    </div>
+    </nav>
 
     <!-- main content -->
     <main>
         <div class="intro">
             <h1>Library</h1>
-            <div class="library-list-items">
-                <ul>
-                    <li>Item 1 placeholder</li>
-                    <li>Item 2 placeholder</li>
-                    <li>Item 3 placeholder</li>
-                    <li>Item 4 placeholder</li>
-                </ul>
+
+            <div class="pure-g">
+                <div class="drink-section pure-u-1 pure-u-lg-1-2">
+                    <h2>Drinks</h2>
+                    <div class="drink-list-items">
+                        <ul class="drink-ul">
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dinner-section pure-u-1 pure-u-lg-1-2">
+                    <h2>Dinners</h2>
+                    <div class="dinner-list-items">
+                        <ul class="dinner-ul">
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div class="test-button-container">
+
         </div>
 
     </main>
 
+    <footer>
+        <h3>Dinner Party Planner &copy;2022</h3>
+        <p>Contributors: Lindsey, Matt, Cole, Brett</p>
+    </footer>
+
     <!-- script -->
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/library.js"></script>
 </body>
 
 </html>
