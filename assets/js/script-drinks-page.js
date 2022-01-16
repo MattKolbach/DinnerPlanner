@@ -203,12 +203,7 @@ const secondaryResultantDrinkPanel = function (data) {
 
 
 
-/*const loadFavorites = function () {
-  const loadDrinkFavorites = localStorage.getItem("drinks");
-  const parsedDrinkFavorites = JSON.parse(loadDrinkFavorites);
-  console.log(parsedDrinkFavorites);
-  saveToDrinkFavoriteLibrary(parsedDrinkFavorites);
-}*/
+
 
 
 
