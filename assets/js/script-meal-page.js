@@ -4,7 +4,7 @@ const resultantFoodEl = document.getElementById("resultantFood");
 
 
 const searchByAreaButton = document.querySelector("#searchByAreaButton");
-const searchedAreaEl = document.querySelector("#searchByArea");
+const searchAreaEl = document.querySelector("#searchByArea");
 
 
 
@@ -14,22 +14,23 @@ const searchedAreaEl = document.querySelector("#searchByArea");
 const getCuisineHandler = function (event) {
   event.preventDefault();
 
-  const searchArea = searchedAreaEl.value.trim();
+  const searchArea = searchAreaEl.value.trim();
+  //console.log(searchArea);
 
   if (searchArea) {
 
     resultantFoodEl.innerHTML = "";// clears?
     console.log("this one works");
 
-    searchFoodEl.value = "";
+    //searchFoodEl.value = "";
   
    const cuisineFoodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + searchArea
    console.log(cuisineFoodUrl);
    fetch(cuisineFoodUrl).then(function (response) {
        if(response.ok) {
            //console.log(response);
-           response.json().then (function(data) {
-           fillResults(data);
+          response.json().then (function(data) {
+          fillResults(data);
           
         });
 
@@ -80,9 +81,9 @@ const fillResults = function (data) {
       const recipe = document.createElement("p");
       recipe.textContent = measure + " " + ingredient;
       resultantFoodEl.append(recipe);
-    }
-  }
-}
+    };
+  };
+};
 
 randomSearchButton.addEventListener("click", getRandomFoodHandler);
 searchByAreaButton.addEventListener("click", getCuisineHandler);
