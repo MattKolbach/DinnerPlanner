@@ -7,6 +7,7 @@
     --color1:rgba(85, 85, 85, 0.5);
     --color2:rgb(240, 255, 255);
     --color3:rgba(47, 109, 66, 0.5);
+    --color4:rgba(47, 109, 66); /* button hover color */
 }
 html, body {
     height: 100%;
@@ -40,14 +41,13 @@ html, body {
 .home-menu a {
     color: white;
 }
-.home-menu li a:hover,
-.home-menu li a:focus {
-    background: rgba(47, 109, 66);
+.home-menu li a:hover{
+    background: var(--color4);
     border: none;
     color: white;
 }
 .pure-menu-heading:hover {
-    background: rgba(47, 109, 66);
+    background: var(--color4);
     border: none;
     color: white;
 }
@@ -61,8 +61,8 @@ html, body {
     margin-bottom: 20px;
 }
 .intro {
-    width: 60%;
     margin: 30px auto;
+    padding: 10px;
     text-align: center;
 }
 .intro h1 {
@@ -80,17 +80,15 @@ html, body {
     background-color: var(--color3);
     border: 1px solid var(--color3);
     border-radius: 7px;
-    padding: 10px;
+    padding: 25px 60px;
     margin: 20px;
     text-align: center;
-    width: 400px;
-    height: 80px;
 }
 .home-button:hover {
-    background-color: rgba(47, 109, 66);
-    border: 1px solid rgba(47, 109, 66);
+    background-color: var(--color4);
+    border: 1px solid var(--color4);
 }
-.home-button a {
+.home-button h2 {
     text-decoration: none;
     color: white;
 }
@@ -146,9 +144,6 @@ footer {
     footer {
         display: block;
         margin-top: auto;
-    }
-    .image-background {
-        background-image: none;
     }
     .intro {
         width: 80%;
