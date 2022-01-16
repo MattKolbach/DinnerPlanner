@@ -6,34 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dinner Planner</title>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Open+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/food-drink.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
 <body>
-    <header class="pure-menu pure-menu-horizontal">
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="./index.html" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                <a href="#" id="dropdown-menu" class="pure-menu-link">Links</a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Drink</a></li>
-                    <li class="pure-menu-item"><a href="./food-page.html" class="pure-menu-link">Food</a></li>
-                    <li class="pure-menu-item"><a href="./index-library.html" class="pure-menu-link">Index</a></li>
-                </ul>
-            </li>
-                    
-        </ul>
-        
-    </header>
+    <!-- header and nav -->
+    <nav class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal">
+            <a class="pure-menu-heading" href="./index.html">Dinner Party Planner</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a href="./library.html" class="pure-menu-link">View Your Library</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="./drinks-page.html" class="pure-menu-link">Find Drinks</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="./food-page.html" class="pure-menu-link">Find Dinners</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div id="title-section">
         <h1 id="page-header">
-            What would you like to eat today?
+            Let's find a drink!
         </h1>
     </div>
+
     <div id="card-container" class="pure-g">
         <div id="card" class="pure-u-1 pure-u-lg-1-3">
             <div id="card-input">
@@ -54,8 +63,8 @@
                 <h2>Search by Drink Name</h2>
                 <form class="pure-form pure-form-stacked">
                     <label id="btn-txt">What is the name of the drink?</label>
-                    <input id="txtbx" type="text" placeholder="rum">
-                    <button class="pure-button" id="submit-btn" type="submit">Search</button>
+                    <input id="userDrink" type="text" placeholder="rum">
+                    <button class="pure-button" id="drinkNameSearchButton" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -67,34 +76,29 @@
                 <h2>Get a Random Drink</h2>
                 <form class="pure-form pure-form-stacked">
                     <label id="btn-txt">What drink will you get?</label>
-                    <button class="pure-button" id= "randomSearchButton" type="submit">Random</button>
+                    <button class="pure-button" id="randomSearchButton" type="submit">Random</button>
                 </form>
             </div>
-            
+
         </div>
         <!--Search by random end-->
     </div>
 
-
-    <div> <!-- Drink search button container -->
-        <div id="searchResults">
-
-        </div>
+    <!-- search results container-->
+    <div id="resultantDrink">
     </div>
 
-    <div> <!--Resultant drink container-->
-        <div id="resultantDrink">
-            
-        </div>
-
+    <div id="secondaryResultantDrink">
     </div>
+
+    <!-- footer -->
     <footer>
-        <h3>Dinner Planner &copy;2022</h3>
+        <h3>Dinner Party Planner &copy;2022</h3>
+        <p>Contributors: Lindsey, Matt, Cole, Brett</p>
     </footer>
 
-
-
     <script src="./assets/js/script-drinks-page.js"></script>
+
 </body>
 
 </html>
