@@ -1,45 +1,95 @@
-const randomMealButton = document.querySelector('#randomSearchButton');
-const resultMealEl = document.querySelector('#result-meal');
+const randomSearchButton = document.querySelector("#randomSearchButton");
 
-var meals = [] // create array to hold meals for saving
+const resultantFoodEl = document.getElementById("resultantFood");
 
-const getRandomMealHandler = function (event) {
-    event.preventDefault();
-    resultMealEl.innerHTML = "";
-    console.log('worked');
-    const randomMealUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
-    console.log(randomMealUrl);
-    fetch(randomMealUrl).then(function (response) {
-        if (response.ok) {
-            // console.log(response);
-            response.json().then(function (data) {
-                // console.log(data);
-                const meal = data.meals[0]
-                var randomMeal = `${meal.strMeal}`
-                const resultMealName = document.createElement('h3');
-                resultMealName.textContent = randomMeal
-                console.log(randomMeal)
-                resultMealEl.append(resultMealName);
 
-                console.log(meal);
-                for (let i = 1; i < 20; i++) {
-                    let ingredient = meal[`strIngredient${i}`]
-                    let measure = meal[`strMeasure${i}`];
-                    if (ingredient && measure) {
-                        const receipe = document.createElement("p");
-                        receipe.textContent = measure + " " + ingredient
-                        resultMealEl.append(receipe);
-                    }
-                }
-            });
-        }
-    });
+const searchByAreaButton = document.querySelector("#searchByAreaButton");
+const searchAreaEl = document.querySelector("#searchByArea");
 
+var meals = []
+
+
+
+
+
+//Food by area API//
+const getCuisineHandler = function (event) {
+  event.preventDefault();
+
+  const searchArea = searchAreaEl.value.trim();
+  //console.log(searchArea);
+
+  if (searchArea) {
+
+    resultantFoodEl.innerHTML = "";// clears?
+    console.log("this one works");
+
+    //searchFoodEl.value = "";
+  
+   const cuisineFoodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + searchArea
+   console.log(cuisineFoodUrl);
+   fetch(cuisineFoodUrl).then(function (response) {
+       if(response.ok) {
+           //console.log(response);
+          response.json().then (function(data) {
+          fillResults(data);
+          
+        });
+
+       };
+   });
+  } 
 };
 
-// saves random meal to local storage
+
+
+//Random API Call//
+const getRandomFoodHandler = function (event) {
+    event.preventDefault();
+    resultantFoodEl.innerHTML = "";
+    console.log("worked");
+    const randomFoodUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
+    console.log(randomFoodUrl);
+    fetch(randomFoodUrl).then(function(response) {
+      if (response.ok) {
+            //console.log(response);
+        response.json().then(function(data) {
+        fillResults(data);
+               
+        });
+      };
+    });
+};
+
+
+
+//filling function//
+const fillResults = function (data) {
+  const food = data.meals[0];
+
+  const resultantFoodName = document.createElement("h3");
+  const resultantFoodInstructions = document.createElement("p");
+
+  resultantFoodName.textContent = `${food.strMeal}`;
+  resultantFoodInstructions.textContent = `${food.strInstructions}`;
+
+  resultantFoodEl.append(resultantFoodName, resultantFoodInstructions);
+
+  for (let i = 1; i < 50; i++) {
+    const food = data.meals[0];
+    let ingredient = food[`strIngredient${i}`];
+    let measure = food[`strMeasure${i}`];
+    if (ingredient && measure) {
+      const recipe = document.createElement("p");
+      recipe.textContent = measure + " " + ingredient;
+      resultantFoodEl.append(recipe);
+    };
+  };
+};
+
 var saveToMealSearchHistory = function () {
-    localStorage.setItem("dinners", JSON.stringify(meals)) // saves to local storage
+  localStorage.setItem("dinners", JSON.stringify(meals)) // saves to local storage
 }
 
-randomMealButton.addEventListener('click', getRandomMealHandler);
+randomSearchButton.addEventListener("click", getRandomFoodHandler);
+searchByAreaButton.addEventListener("click", getCuisineHandler);
