@@ -29,30 +29,16 @@ const getCuisineHandler = function (event) {
        if(response.ok) {
            //console.log(response);
            response.json().then (function(data) {
-
-             console.log(data);
-
-             for (let i = 0; i < 100; i++) {
-                 const food = data.meals[i]
-                 const resultantFoodName = document.createElement("h3");
-                 const resultantFoodId = `${food.stridMeal}`;
-  
-                 resultantFoodName.textContent = `${food.strMeal}`;
-                //resultantFoodId.textContent = 
-
-                 console.log(resultantFoodId);
-                 console.log(food);
-            
-                 resultantFoodEl.append(resultantFoodName);
-             };
-           });
+           fillResults(data);
+          
+        });
 
        };
    });
   } 
 };
 
-searchButton.addEventListener("click", getCuisineHandler)
+
 
 //Random API Call//
 const getRandomFoodHandler = function (event) {
@@ -62,15 +48,19 @@ const getRandomFoodHandler = function (event) {
     const randomFoodUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
     console.log(randomFoodUrl);
     fetch(randomFoodUrl).then(function(response) {
-        if (response.ok) {
+      if (response.ok) {
             //console.log(response);
-          response.json().then(function(data) {
+        response.json().then(function(data) {
+        fillResults(data);
                
-          });
-        }
+        });
+      };
     });
 };
 
+
+
+//filling function//
 const fillResults = function (data) {
   const food = data.meals[0];
 
@@ -95,3 +85,4 @@ const fillResults = function (data) {
 }
 
 randomSearchButton.addEventListener("click", getRandomFoodHandler);
+searchByAreaButton.addEventListener("click", getCuisineHandler);
