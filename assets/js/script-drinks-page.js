@@ -143,7 +143,7 @@ const resultantDrinkPanel = function (data) {
     // check if drink is already saved to local storage
     // if drink isn't already saved, then save drink
     if (!drinks.includes(randomDrink)) {
-     // drinks.push(randomDrink) // push the drink into the drinks array
+      // drinks.push(randomDrink) // push the drink into the drinks array
       saveToDrinkFavoriteLibrary(randomDrink) // save to local storage
     }
   }
@@ -193,18 +193,13 @@ const secondaryResultantDrinkPanel = function (data) {
     // check if drink is already saved to local storage
     // if drink isn't already saved, then save drink
     if (!drinks.includes(randomDrink)) {
-       // push the drink into the drinks array
+      // push the drink into the drinks array
       saveToDrinkFavoriteLibrary(randomDrink) // save to local storage
     }
   }
 
   favButton.addEventListener("click", saveDrinkToFavorites)
 };
-
-
-
-
-
 
 
 var saveToDrinkFavoriteLibrary = function (randomDrink) {
@@ -214,9 +209,6 @@ var saveToDrinkFavoriteLibrary = function (randomDrink) {
   localStorage.setItem("drinks", JSON.stringify(drinks)) // saves to local storage
 }
 
-
-
-//window.onload = loadFavorites;
 /////   click listeners   /////
 randomSearchButton.addEventListener("click", getRandomDrinkHandler);
 ingredientSearchButton.addEventListener("click", drinkByIngredientHandler);
