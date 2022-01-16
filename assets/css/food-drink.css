@@ -6,11 +6,9 @@
 }
 
 :root {
-    --color1:rgba(255, 255, 255, 0.5);
-    --color2:white;
+    --color1:rgba(85, 85, 85, 0.5);
+    --color2:rgb(255, 255, 255);
     --color3:rgba(47, 109, 66, 0.5);
-    --color4:turquoise; 
-    --color5:black;
 }
 
 header {
@@ -28,10 +26,18 @@ header {
     justify-content: center; 
 }
 
+#page-header {
+    text-align:center;
+    width:45%;
+    font-size: 70px;
+    font-family: 'Abel', 'Open Sans', sans-serif;
+}
+
 #card-container {
     display:flex;
     justify-content:space-around;
     flex-wrap:wrap;
+    margin: 10px;
 }
 
 #card {
@@ -42,7 +48,6 @@ header {
     padding-top: 30px;
     padding-bottom: 30px;
     align-items:center;
-    
 }
 
 #card-input {
@@ -67,13 +72,15 @@ form {
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
 }
 
-#txtbx {
+#userDrink, #userIngredient {  /* text input box */
     margin:auto;
     margin-top:5px;
     margin-bottom:7px;
     width:80%;
 }
+
 #submit-btn {
+    border-radius: 5em;
     border: 1px solid var(--color5);
     background-color:var(--color3);
     color:var(--color2);
@@ -87,7 +94,6 @@ form {
 
 #randomSearchButton {
     position:relative;
-    border:1px solid var(--color5);
     background-color:var(--color3);
     color:var(--color2);
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
@@ -96,6 +102,25 @@ form {
 #randomSearchButton:hover {
     border:1px solid var(--color4);
     background-color:var(--color4);
+}
+
+#resultantDrink, #resultantFood, #secondaryResultantDrink {
+    width:100%;
+    overflow:visible;
+    text-align: center;
+    padding: 10px;
+}
+
+.pure-button {  /* ingredient buttons for "SEARCH BY INGREDIENT API CALL */
+    margin: 5px;
+}
+
+#resultantDrink h3, #secondaryResultantDrink h3 {  /* title of drink */
+    color: var(--color3);
+}
+
+#resultantDrink .drink-instructions, #secondaryResultantDrink .drink-instructions {  /* drink instructions */
+    font-style: italic;
 }
 
 #resultantDrink, #resultantFood {

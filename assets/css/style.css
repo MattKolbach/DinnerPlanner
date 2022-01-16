@@ -1,12 +1,36 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root {
+    --color1:rgba(85, 85, 85, 0.5);
+    --color2:rgb(240, 255, 255);
+    --color3:rgba(47, 109, 66, 0.5);
+}
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-background {
+    background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimagesvc.meredithcorp.io%2Fv3%2Fmm%2Fimage%3Furl%3Dhttps%253A%252F%252Fstatic.onecms.io%252Fwp-content%252Fuploads%252Fsites%252F34%252F2019%252F04%252F12164312%252Fgalentines-day-dinner-6.jpg&q=85");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    width: auto;
+}
+
 /* NAVIGATION BAR */
 .home-menu {
     padding: 0.5em;
     text-align: left;
-    background: black;
+    background: var(--color3);
 }
 .home-menu .pure-menu-heading {
     color: white;
-    font-weight: 400;
     font-size: 120%;
     font-family: 'Abel', 'Open Sans', sans-serif;
 }
@@ -18,20 +42,24 @@
 }
 .home-menu li a:hover,
 .home-menu li a:focus {
-    background: black;
+    background: rgba(47, 109, 66);
     border: none;
-    color: turquoise;
-}
-.pure-menu-children {
-    background-color: black;
     color: white;
 }
 .pure-menu-heading:hover {
-    font-weight: bold;
-    color: turquoise;
+    background: rgba(47, 109, 66);
+    border: none;
+    color: white;
 }
 
 /* HOMEPAGE */
+.white-container {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 65%;
+    margin: auto;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
 .intro {
     width: 60%;
     margin: 30px auto;
@@ -49,16 +77,18 @@
     justify-content: center;
 }
 .home-button {
-    background-color: black;
-    border-radius: 8px;
+    background-color: var(--color3);
+    border: 1px solid var(--color3);
+    border-radius: 7px;
     padding: 10px;
     margin: 20px;
     text-align: center;
     width: 400px;
+    height: 80px;
 }
 .home-button:hover {
-    background-color: turquoise;
-    border: 1px solid turquoise;
+    background-color: rgba(47, 109, 66);
+    border: 1px solid rgba(47, 109, 66);
 }
 .home-button a {
     text-decoration: none;
@@ -66,18 +96,67 @@
 }
 
 /* LIBRARY */
-.library-list-items ul {
+.drink-section {
+    padding-bottom: 22px;
+}
+.drink-list-items ul {
+    list-style: none;
+    line-height: 30px;
+}
+.dinner-list-items ul {
     list-style: none;
     line-height: 30px;
 }
 
-/* MEDIA QUERY FOR PHONE */
-@media screen and (max-width: 575px) {
-    .home-menu .pure-menu-heading {
+/* FOOTER */
+footer {
+    background:var(--color3);
+    color: white;
+    align-items:center;
+    width: 100%;
+    display:flex;
+    justify-content:space-between;
+    overflow:auto;
+    box-sizing:border-box;
+    padding: 30px;
+    margin-top: auto;
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+    .home-button-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .home-button {
+        margin: 20px auto;
+        width: 300px;
+        height: 80px;
+    }
+    .pure-menu-horizontal .pure-menu-list {
         display: block;
     }
-    .home-button-container {
+}
+
+/* MEDIA QUERY FOR PHONE */
+@media screen and (max-width: 575px) {
+    main {
+        width: 100%;
+    }
+    footer {
         display: block;
-        padding-left: 35px;
+        margin-top: auto;
+    }
+    .image-background {
+        background-image: none;
+    }
+    .intro {
+        width: 80%;
+    }
+    .intro h1 {
+        font-size: 50px;
+    }
+    .intro p {
+        font-size: 18px;
     }
 }
