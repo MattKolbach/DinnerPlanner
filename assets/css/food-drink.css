@@ -6,9 +6,11 @@
 }
 
 :root {
-    --color1:rgba(85, 85, 85, 0.5);
-    --color2:rgb(255, 255, 255);
+    --color1:rgba(255, 255, 255, 0.5);
+    --color2:white;
     --color3:rgba(47, 109, 66, 0.5);
+    --color4:turquoise; 
+    --color5:black;
 }
 
 header {
@@ -26,18 +28,10 @@ header {
     justify-content: center; 
 }
 
-#page-header {
-    text-align:center;
-    width:45%;
-    font-size: 70px;
-    font-family: 'Abel', 'Open Sans', sans-serif;
-}
-
 #card-container {
     display:flex;
     justify-content:space-around;
     flex-wrap:wrap;
-    margin: 10px;
 }
 
 #card {
@@ -48,6 +42,7 @@ header {
     padding-top: 30px;
     padding-bottom: 30px;
     align-items:center;
+    
 }
 
 #card-input {
@@ -125,13 +120,12 @@ form {
 
 #resultantDrink, #resultantFood {
     width:80%;
-    border:3px solid var(--color5);
     border-radius:5px;
-    height:300px;
     overflow:visible;
     margin:auto;
     margin-bottom:15px;
 }
+
 
 footer {
     background:var(--color3);
