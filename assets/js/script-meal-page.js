@@ -1,12 +1,15 @@
 const randomSearchButton = document.querySelector("#randomSearchButton");
 
 const resultantFoodEl = document.getElementById("resultantFood");
+const otherFoodEl = document.getElementById("otherFoodResult")
 
+const ingredientButton = document.querySelector("#ingredientSearchButton")
+const inputIngredientEl = document.querySelector("#inputIngredient")
 
 const searchByAreaButton = document.querySelector("#searchByAreaButton");
 const searchAreaEl = document.querySelector("#searchByArea");
 
-var meals = []
+var meals = [] //array for holding stuff
 
 
 
@@ -41,7 +44,49 @@ const getCuisineHandler = function (event) {
   } 
 };
 
+const foodByIngredient = function (event) {
+  event.preventDefault();
+  resultantFoodEl.innerHTML = "";//clears previous drink result
+  const searchIngredient = inputIngredientEl.value.trim();
+  inputIngredientEl.value = "";//clears input field
+  const inputIngredientUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + searchIngredient;
+  fetch(inputIngredientUrl).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+        //console.log(data);
+        const foodArrayLength = data.meals.length;
+        
+        for (let i = 0; i < foodArrayLength; i++) {
+          let newFoodButton = document.createElement("button");
+          newFoodButton.type = "submit";
+          newFoodButton.className = "pure-button";
+          newFoodButton.innerText = data.meals[i].strMeals;
+          newFoodButton.dataset.id = data.meals[i].idMeal;
+          resultantFoodEl.append(newFoodButton);
 
+          // when user clicks on one of the drink buttons, a receipe comes up
+          var newFoodButtonHandler = function (event) {
+            event.preventDefault()
+            otherFoodEl.innerHTML = "";//clears previous drink result
+            var foodID = data.meals[i].idMeals
+            //console.log(drinkID)
+            var foodIDUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + foodID
+            fetch(foodIDUrl).then(function (response) {
+              if (response.ok) {
+                response.json().then(function (data) {
+                  otherFoodResult(data)
+                })
+              }
+            })
+          }
+          newFoodButton.addEventListener("click", newFoodButtonHandler)
+        }
+      })
+    } else {
+      console.log("ingredient not valid")
+    }
+  })
+}
 
 //Random API Call//
 const getRandomFoodHandler = function (event) {
@@ -83,13 +128,74 @@ const fillResults = function (data) {
       const recipe = document.createElement("p");
       recipe.textContent = measure + " " + ingredient;
       resultantFoodEl.append(recipe);
-    };
-  };
+    }
+  }
+
+  var favButton = document.createElement("button")
+  favButton.textContent = "Add to Favorites"
+  favButton.classList = "pure-button"
+  resultantDrinkEl.append(favButton)
+
+  var saveFoodToFavorites = function (event) {
+   var randomFood = `${food.strMeals}`
+   console.log(randomFood)
+
+    if (!food.includes(randomFood)) {
+     saveToFoodFavoriteLibrary(randomFood) // save to local storage
+    }
+  } 
+
+   favButton.addEventListener("click", saveFoodToFavorites)
+  
 };
 
-var saveToMealSearchHistory = function () {
-  localStorage.setItem("dinners", JSON.stringify(meals)) // saves to local storage
+const otherFoodFiller = function (data) {
+  const food = data.meals[0];
+  const resultFoodName = document.createElement("h3");
+  const resultFoodInstructions = document.createElement("p");
+  resultFoodInstructions.classList.add("prep-instructions") // adding class name for italics
+
+  resultFoodName.textContent = `${food.strMeals}`;
+  resultFoodInstructions.textContent = `${food.strInstructions}`;
+
+  otherFoodEl.append(resultFoodName, resultFoodInstructions);
+
+  for (let i = 1; i < 50; i++) {
+    const food = data.meals[0]
+    let ingredient = food[`strIngredient${i}`]; //drink @ key
+    let measure = food[`strMeasure${i}`];
+    if (ingredient && measure) {
+      const recipe = document.createElement("p");
+      recipe.textContent = measure + " " + ingredient;
+      otherFoodEl.append(recipe);
+    }
+  }
+
+  var favButton = document.createElement("button")
+  favButton.textContent = "Add to Favorites"
+  favButton.classList = "pure-button"
+  otherFoodEl.append(favButton)
+
+  var saveFoodToFavorites = function (event) {
+    var randomFood = `${food.strMeals}`
+    if (!meals.includes(randomFood)) {
+      saveToFoodFavoriteLibrary(randomFood) // save to local storage
+    }
+  }
+
+  favButton.addEventListener("click", saveDrinkToFavorites)
+
 }
+
+
+var saveToFoodFavoriteLibrary = function (randomFood) {
+  const loadFoodFavorites = localStorage.getItem("dinners");
+  foods = JSON.parse(loadDrinkFavorites);
+  foods.push(randomFood)
+  localStorage.setItem("dinners", JSON.stringify(foods)) // saves to local storage
+}
+
 
 randomSearchButton.addEventListener("click", getRandomFoodHandler);
 searchByAreaButton.addEventListener("click", getCuisineHandler);
+ingredientButton.addEventListener("click", foodByIngredient);

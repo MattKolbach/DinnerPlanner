@@ -49,8 +49,8 @@
                 <h2>Search by Ingredient</h2>
                 <form class="pure-form pure-form-stacked">
                     <label id="btn-txt">What ingredient do you have?</label>
-                    <input id="txtbx1" type="text" placeholder="steak">
-                    <button class="pure-button" id="submit-btn1" type="submit">Search</button>
+                    <input id="inputIngrdient" type="text" placeholder="steak">
+                    <button class="pure-button" id="ingredientSearchButton" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -62,8 +62,8 @@
                 <h2>Search by Cuisine</h2>
                 <form class="pure-form pure-form-stacked">
                     <label id="btn-txt">What kind of food is it?</label>
-                    <input id="txtbx" type="text" placeholder="French">
-                    <button class="pure-button" id="submit-btn" type="submit">Search</button>
+                    <input id="searchByArea" type="text" placeholder="French">
+                    <button class="pure-button" id="searchByAreaButton" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -85,8 +85,10 @@
 
     <div>
         <!--Search results container-->
-        <div id="result-meal">
+        <div id="resultantFood">
         </div>
+
+        <div id="otherFoodResult"></div>
     </div>
 
     <footer>
