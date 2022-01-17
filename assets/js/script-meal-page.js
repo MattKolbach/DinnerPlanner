@@ -46,7 +46,7 @@ const getCuisineHandler = function (event) {
               newFoodButton.dataset.id = data.meals[i].idMeal;
               resultantFoodEl.append(newFoodButton);
 
-              // when user clicks on one of the drink buttons, a receipe comes up
+
               var newFoodButtonHandler = function (event) {
                 event.preventDefault()
                 otherFoodEl.innerHTML = "";//clears previous drink result
@@ -93,12 +93,10 @@ const foodByIngredient = function (event) {
           newFoodButton.dataset.id = data.meals[i].idMeal;
           resultantFoodEl.append(newFoodButton);
 
-          // when user clicks on one of the drink buttons, a receipe comes up
           var newFoodButtonHandler = function (event) {
             event.preventDefault()
-            otherFoodEl.innerHTML = "";//clears previous drink result
+            otherFoodEl.innerHTML = "";//clears 
             var foodID = data.meals[i].idMeals
-            //console.log(drinkID)
             var foodIDUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + foodID
             fetch(foodIDUrl).then(function (response) {
               if (response.ok) {
