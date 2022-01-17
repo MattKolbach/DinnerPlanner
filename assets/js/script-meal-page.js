@@ -52,7 +52,6 @@ const getCuisineHandler = function (event) {
                 event.preventDefault()
                 otherFoodEl.innerHTML = "";//clears previous drink result
                 var foodID = data.meals[i].idMeal
-                //console.log(drinkID)
                 var foodIDUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + foodID
                 fetch(foodIDUrl).then(function (response) {
                   if (response.ok) {
@@ -121,6 +120,7 @@ const getRandomFoodHandler = function (event) {
     event.preventDefault();
     resultantFoodEl.innerHTML = "";
     console.log("worked");
+    otherFoodEl.innerHTML = "";
     const randomFoodUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
     console.log(randomFoodUrl);
     fetch(randomFoodUrl).then(function(response) {
@@ -173,7 +173,7 @@ const fillResults = function (data) {
     }
   } 
 
-   favButton.addEventListener("click", saveFoodToFavorites)
+  favButton.addEventListener("click", saveFoodToFavorites)
   
 };
 
@@ -207,7 +207,7 @@ const otherFoodFiller = function (data) {
   otherFoodEl.append(favButton)
 
   var saveFoodToFavorites = function (event) {
-    var randomFood = `${food.strMeals}`
+    var randomFood = `${food.strMeal}`
     if (!meals.includes(randomFood)) {
       saveToFoodFavoriteLibrary(randomFood) // save to local storage
     }
@@ -219,10 +219,10 @@ const otherFoodFiller = function (data) {
 
 
 var saveToFoodFavoriteLibrary = function (randomFood) {
-  const loadFoodFavorites = localStorage.getItem("dinners");
-  foods = JSON.parse(loadFoodFavorites);
-  foods.push(randomFood)
-  localStorage.setItem("dinners", JSON.stringify(foods)) // saves to local storage
+  const loadFoodFavorites = localStorage.getItem("dinner");
+  meals = JSON.parse(loadFoodFavorites);
+  meals.push(randomFood)
+  localStorage.setItem("dinner", JSON.stringify(meals)) // saves to local storage
 }
 
 
