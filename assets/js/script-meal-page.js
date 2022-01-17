@@ -19,43 +19,72 @@ var meals = [] //array for holding stuff
 const getCuisineHandler = function (event) {
   event.preventDefault();
 
+
+  resultantFoodEl.innerHTML = "";
   const searchArea = searchAreaEl.value.trim();
-  //console.log(searchArea);
-
+  
+  const cuisineFoodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + searchArea
   if (searchArea) {
-
     resultantFoodEl.innerHTML = "";// clears?
     console.log("this one works");
 
     //searchFoodEl.value = "";
-  
-   const cuisineFoodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + searchArea
    console.log(cuisineFoodUrl);
    fetch(cuisineFoodUrl).then(function (response) {
        if(response.ok) {
-           //console.log(response);
           response.json().then (function(data) {
-          fillResults(data);
+            otherFoodFiller(data);
           
-        });
+          
+            const foodAreaArrayLength = data.meals.length;
+        
+            for (let i = 0; i < foodAreaArrayLength; i++) {
+              let newFoodButton = document.createElement("button");
+              newFoodButton.type = "submit";
+              newFoodButton.className = "pure-button";
+              newFoodButton.innerText = data.meals[i].strMeals;
+              newFoodButton.dataset.id = data.meals[i].idMeal;
+              resultantFoodEl.append(newFoodButton);
 
-       };
-   });
-  } 
+              // when user clicks on one of the drink buttons, a receipe comes up
+              var newFoodButtonHandler = function (event) {
+                event.preventDefault()
+                otherFoodEl.innerHTML = "";//clears previous drink result
+                var foodID = data.meals[i].idMeals
+                //console.log(drinkID)
+                var foodIDUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + foodID
+                fetch(foodIDUrl).then(function (response) {
+                  if (response.ok) {
+                    response.json().then(function (data) {
+                      otherFoodResult(data)
+                    })
+                  }
+                })
+              }
+              newFoodButton.addEventListener("click", newFoodButtonHandler)
+            }
+          });
+        } else {
+          console.log("ingredient not valid")
+        }
+        
+      });
+    } 
 };
 
 const foodByIngredient = function (event) {
   event.preventDefault();
-  resultantFoodEl.innerHTML = "";//clears previous drink result
+  resultantFoodEl.innerHTML = "";//clears
   const searchIngredient = inputIngredientEl.value.trim();
   inputIngredientEl.value = "";//clears input field
   const inputIngredientUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + searchIngredient;
+  console.log(searchIngredient)
   fetch(inputIngredientUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        //console.log(data);
+        console.log(data);
         const foodArrayLength = data.meals.length;
-        
+        console.log(foodArrayLength);
         for (let i = 0; i < foodArrayLength; i++) {
           let newFoodButton = document.createElement("button");
           newFoodButton.type = "submit";
@@ -134,13 +163,13 @@ const fillResults = function (data) {
   var favButton = document.createElement("button")
   favButton.textContent = "Add to Favorites"
   favButton.classList = "pure-button"
-  resultantDrinkEl.append(favButton)
+  resultantFoodEl.append(favButton)
 
   var saveFoodToFavorites = function (event) {
    var randomFood = `${food.strMeals}`
    console.log(randomFood)
 
-    if (!food.includes(randomFood)) {
+    if (!meals.includes(randomFood)) {
      saveToFoodFavoriteLibrary(randomFood) // save to local storage
     }
   } 
@@ -183,7 +212,7 @@ const otherFoodFiller = function (data) {
     }
   }
 
-  favButton.addEventListener("click", saveDrinkToFavorites)
+  favButton.addEventListener("click", saveFoodToFavorites)
 
 }
 
