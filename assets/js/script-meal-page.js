@@ -9,6 +9,7 @@ const inputIngredientEl = document.querySelector("#inputIngredient")
 const searchByAreaButton = document.querySelector("#searchByAreaButton");
 const searchAreaEl = document.querySelector("#searchByArea");
 
+
 var meals = [] //array for holding stuff
 
 
@@ -33,16 +34,16 @@ const getCuisineHandler = function (event) {
    fetch(cuisineFoodUrl).then(function (response) {
        if(response.ok) {
           response.json().then (function(data) {
-            otherFoodFiller(data);
+            //otherFoodFiller(data);
           
           
             const foodAreaArrayLength = data.meals.length;
-        
+            
             for (let i = 0; i < foodAreaArrayLength; i++) {
               let newFoodButton = document.createElement("button");
               newFoodButton.type = "submit";
               newFoodButton.className = "pure-button";
-              newFoodButton.innerText = data.meals[i].strMeals;
+              newFoodButton.innerText = data.meals[i].strMeal;
               newFoodButton.dataset.id = data.meals[i].idMeal;
               resultantFoodEl.append(newFoodButton);
 
@@ -50,13 +51,13 @@ const getCuisineHandler = function (event) {
               var newFoodButtonHandler = function (event) {
                 event.preventDefault()
                 otherFoodEl.innerHTML = "";//clears previous drink result
-                var foodID = data.meals[i].idMeals
+                var foodID = data.meals[i].idMeal
                 //console.log(drinkID)
                 var foodIDUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + foodID
                 fetch(foodIDUrl).then(function (response) {
                   if (response.ok) {
                     response.json().then(function (data) {
-                      otherFoodResult(data)
+                      otherFoodFiller(data)
                     })
                   }
                 })
@@ -65,7 +66,7 @@ const getCuisineHandler = function (event) {
             }
           });
         } else {
-          console.log("ingredient not valid")
+          console.log("main ingredient not valid")
         }
         
       });
@@ -89,7 +90,7 @@ const foodByIngredient = function (event) {
           let newFoodButton = document.createElement("button");
           newFoodButton.type = "submit";
           newFoodButton.className = "pure-button";
-          newFoodButton.innerText = data.meals[i].strMeals;
+          newFoodButton.innerText = data.meals[i].strMeal;
           newFoodButton.dataset.id = data.meals[i].idMeal;
           resultantFoodEl.append(newFoodButton);
 
@@ -101,7 +102,7 @@ const foodByIngredient = function (event) {
             fetch(foodIDUrl).then(function (response) {
               if (response.ok) {
                 response.json().then(function (data) {
-                  otherFoodResult(data)
+                  otherFoodFiller(data)
                 })
               }
             })
@@ -164,7 +165,7 @@ const fillResults = function (data) {
   resultantFoodEl.append(favButton)
 
   var saveFoodToFavorites = function (event) {
-   var randomFood = `${food.strMeals}`
+   var randomFood = `${food.strMeal}`
    console.log(randomFood)
 
     if (!meals.includes(randomFood)) {
@@ -182,8 +183,10 @@ const otherFoodFiller = function (data) {
   const resultFoodInstructions = document.createElement("p");
   resultFoodInstructions.classList.add("prep-instructions") // adding class name for italics
 
-  resultFoodName.textContent = `${food.strMeals}`;
+  resultFoodName.textContent = `${food.strMeal}`;
   resultFoodInstructions.textContent = `${food.strInstructions}`;
+
+  console.log(resultFoodName);
 
   otherFoodEl.append(resultFoodName, resultFoodInstructions);
 
@@ -217,7 +220,7 @@ const otherFoodFiller = function (data) {
 
 var saveToFoodFavoriteLibrary = function (randomFood) {
   const loadFoodFavorites = localStorage.getItem("dinners");
-  foods = JSON.parse(loadDrinkFavorites);
+  foods = JSON.parse(loadFoodFavorites);
   foods.push(randomFood)
   localStorage.setItem("dinners", JSON.stringify(foods)) // saves to local storage
 }
