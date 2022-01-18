@@ -219,10 +219,10 @@ const otherFoodFiller = function (data) {
 
 
 var saveToFoodFavoriteLibrary = function (randomFood) {
-  const loadFoodFavorites = localStorage.getItem("dinner");
+  const loadFoodFavorites = localStorage.getItem("dinners");
   meals = JSON.parse(loadFoodFavorites);
   meals.push(randomFood)
-  localStorage.setItem("dinner", JSON.stringify(meals)) // saves to local storage
+  localStorage.setItem("dinners", JSON.stringify(meals)) // saves to local storage
 }
 
 
