@@ -102,7 +102,7 @@ const foodByIngredient = function (event) {
             fetch(foodIDUrl).then(function (response) {
               if (response.ok) {
                 response.json().then(function (data) {
-                  otherFoodFiller(data)
+                  otherFoodFiller(data);
                 })
               }
             })
@@ -220,12 +220,17 @@ const otherFoodFiller = function (data) {
 
 
 var saveToFoodFavoriteLibrary = function (randomFood) {
-  const loadFoodFavorites = localStorage.getItem("dinners");
-  meals = JSON.parse(loadFoodFavorites);
   meals.push(randomFood)
   localStorage.setItem("dinners", JSON.stringify(meals)) // saves to local storage
 }
 
+var loadDinnerSearchHistory = function () {
+  var savedDinners = localStorage.getItem("dinners")
+  if (savedDinners === null) {
+    return false;
+  }
+  drinks = JSON.parse(savedDinners)
+}
 
 randomSearchButton.addEventListener("click", getRandomFoodHandler);
 searchByAreaButton.addEventListener("click", getCuisineHandler);
