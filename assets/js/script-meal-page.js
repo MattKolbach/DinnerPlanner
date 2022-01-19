@@ -77,6 +77,7 @@ const foodByIngredient = function (event) {
   resultantFoodEl.innerHTML = "";//clears
   const searchIngredient = inputIngredientEl.value.trim();
   inputIngredientEl.value = "";//clears input field
+  otherFoodEl.innerHTML = "";
   const inputIngredientUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + searchIngredient;
   console.log(searchIngredient)
   fetch(inputIngredientUrl).then(function (response) {
