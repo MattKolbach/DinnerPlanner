@@ -9,23 +9,36 @@
     --color2:rgb(240, 255, 255);
     --color3:rgba(47, 109, 66, 0.5);
     --color4:rgba(47, 109, 66); /* button hover color */
+
+header {
+    background:var(--color3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.856);
+}
+
+
+.pure-menu-link {
+    color:var(--color2);
+}
+
+#title-section {
+    display:flex;
+    justify-content: center; 
 }
 
 #card-container {
     display:flex;
     justify-content:space-around;
     flex-wrap:wrap;
-    margin: 10px;
 }
 
 #card {
     display:flex;
     justify-content:space-around;
-    background-color:var(--color2);
     border-radius:15px;
     padding-top: 30px;
     padding-bottom: 30px;
     align-items:center;
+    
 }
 
 #card-input {
@@ -50,22 +63,21 @@ form {
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
 }
 
-#userDrink, #userIngredient {  /* text input box */
+.txtbx {  /* text input box */
     margin:auto;
     margin-top:5px;
     margin-bottom:7px;
     width:80%;
 }
 
-#submit-btn {
-    border-radius: 5em;
+.submit-btn {
     border: 1px solid var(--color5);
     background-color:var(--color3);
     color:var(--color2);
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
 }
 
-#submit-btn:hover {
+.submit-btn:hover {
     background-color:var(--color4);
     border: 1px solid var(--color4);
 }
@@ -83,7 +95,7 @@ form {
 }
 
 #resultantDrink, #resultantFood, #secondaryResultantDrink {
-    width:100%;
+    width:80%;
     overflow:visible;
     text-align: center;
     padding: 10px;
@@ -102,8 +114,6 @@ form {
 }
 
 #resultantDrink, #resultantFood {
-    width:80%;
-    border:3px solid var(--color5);
     border-radius:5px;
     overflow:visible;
     margin:auto;

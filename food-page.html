@@ -54,54 +54,75 @@
                     <button class="pure-button" id="submit-btn1" type="submit">Search</button>
                 </form>
             </div>
-        </div>
-        <!--Search by ingredient end-->
+        </nav>
 
-        <div id="card" class="pure-u-1 pure-u-lg-1-3">
-            <div id="card-input">
-                <!--search by NAME card-->
-                <h2>Search by Cuisine</h2>
-                <form class="pure-form pure-form-stacked">
-                    <label id="btn-txt">What kind of food is it?</label>
-                    <input id="txtbx" type="text" placeholder="French">
-                    <button class="pure-button" id="submit-btn" type="submit">Search</button>
-                </form>
+        <div id="title-section">
+            <h1 id="page-header">
+                Let's Eat! 
+            </h1>
+        </div>
+
+        <div id="card-container" class="pure-g">
+            <div id="card" class="pure-u-1 pure-u-lg-1-3">
+                <div id="card-input">
+                    <!--search by ingredient card-->
+                    <h2>Search by Ingredient</h2>
+                    <form class="pure-form">
+                        <label id="btn-txt">What ingredient do you have?</label>
+                        <input class="txtbx" id="inputIngredient" type="text" placeholder="steak">
+                        <button class="pure-button submit-btn" id="ingredientSearchButton" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <!--Search by NAME end-->
+            <!--Search by ingredient end-->
 
-        <div id="card" class="pure-u-1 pure-u-lg-1-3">
-            <div id="card-input">
-                <!--search by Random card-->
-                <h2>Get a Random Food</h2>
-                <form class="pure-form pure-form-stacked">
-                    <label id="btn-txt">What food will you get?</label>
-                    <button class="pure-button" id="randomSearchButton" type="submit">Random</button>
-                </form>
+
+            <div id="card" class="pure-u-1 pure-u-lg-1-3">
+                <div id="card-input">
+                    <!--search by NAME card-->
+                    <h2>Search by Cuisine</h2>
+                    <form class="pure-form">
+                        <label id="btn-txt">What kind of food is it?</label>
+                        <input class="txtbx" id="searchByArea" type="text" placeholder="French">
+                        <button class="pure-button submit-btn" id="searchByAreaButton" type="submit">Search</button>
+                    </form>
+                </div>
+
+            </div>
+            <!--Search by NAME end-->
+
+            <div id="card" class="pure-u-1 pure-u-lg-1-3">
+                <div id="card-input">
+                    <!--search by Random card-->
+                    <h2>Get a Random Food</h2>
+                    <form class="pure-form">
+                        <label id="btn-txt">What food will you get?</label>
+                        <button class="pure-button submit-btn" id="randomSearchButton" type="submit">Random</button>
+                    </form>
+                </div>
+            </div>
+            <!--Search by random end-->
+        </div>
+
+
+        <div>
+            <!--Search results container-->
+            <div id="resultantFood">
             </div>
 
+            <div id="otherFoodResult"></div>
         </div>
-        <!--Search by random end-->
-    </div>
-
-    <div>
-        <!--Search results container-->
-        <div id="result-meal">
-        </div>
-    </div>
-
-    <!-- footer -->
-    <footer>
-        <h3>Dinner Party Planner &copy;2022</h3>
-        <div id="devs">
+        <!-- footer -->
+        <footer>
+          <h3>Dinner Party Planner &copy;2022</h3>
+            <div id="devs">
             <p>Developers: <a href="https://github.com/lindseymiller2567" target="_blank">Lindsey</a>, <a
-                    href="https://github.com/MattKolbach" target="_blank">Matt</a>, <a href="https://github.com/ColeVibes" target="_blank">Cole</a>, <a
-                    href="https://github.com/Besupan" target="_blank">Brett</a></p>
-        </div>
-    </footer>
+                              href="https://github.com/MattKolbach" target="_blank">Matt</a>, <a href="https://github.com/ColeVibes" target="_blank">Cole</a>, <a
+                              href="https://github.com/Besupan" target="_blank">Brett</a></p>
+        </footer>
 
-    <script src="./assets/js/script-meal-page.js"></script>
+        <script src="./assets/js/script-meal-page.js"></script>
 
-</body>
+    </body>
 
 </html>

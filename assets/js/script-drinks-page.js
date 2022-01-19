@@ -27,7 +27,6 @@ const drinkByIngredientHandler = function (event) {
   fetch(userIngredientURL).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        //console.log(data);
         const drinksArrayLength = data.drinks.length;
         console.log(drinksArrayLength);
         for (let i = 0; i < drinksArrayLength; i++) {
@@ -43,7 +42,6 @@ const drinkByIngredientHandler = function (event) {
             event.preventDefault()
             secondaryResultantDrinkEl.innerHTML = "";//clears previous drink result
             var drinkID = data.drinks[i].idDrink
-            //console.log(drinkID)
             var drinkIDURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID
             fetch(drinkIDURL).then(function (response) {
               if (response.ok) {
@@ -92,7 +90,6 @@ const getRandomDrinkHandler = function (event) {
   resultantDrinkEl.innerHTML = ""; //clears previous drink result
   secondaryResultantDrinkEl.innerHTML = ""; //clears previous drink result
   const randomDrinkURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-  //console.log(randomDrinkURL);
   fetch(randomDrinkURL).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -106,7 +103,6 @@ const getRandomDrinkHandler = function (event) {
 const resultantDrinkPanel = function (data) {
   const drink = data.drinks[0];
   const resultantDrinkName = document.createElement("h3");
-  // resultantDrinkName.classList.add("drink-title") // adding class name for fav. btn
   const resultantDrinkGlass = document.createElement("p");
   const resultantDrinkInstructions = document.createElement("p");
   resultantDrinkInstructions.classList.add("drink-instructions") // adding class name for italics
@@ -189,7 +185,6 @@ const secondaryResultantDrinkPanel = function (data) {
 
   var saveDrinkToFavorites = function (event) {
     var randomDrink = `${drink.strDrink}`
-    //console.log(randomDrink)
     // check if drink is already saved to local storage
     // if drink isn't already saved, then save drink
     if (!drinks.includes(randomDrink)) {
