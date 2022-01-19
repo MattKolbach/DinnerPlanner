@@ -5,12 +5,10 @@
 }
 
 :root {
-    --color1:rgba(255, 255, 255, 0.5);
-    --color2:white;
+    --color1:rgba(85, 85, 85, 0.5);
+    --color2:rgb(240, 255, 255);
     --color3:rgba(47, 109, 66, 0.5);
-    --color4:turquoise; 
-    --color5:black;
-}
+    --color4:rgba(47, 109, 66); /* button hover color */
 
 header {
     background:var(--color3);
@@ -97,7 +95,7 @@ form {
 }
 
 #resultantDrink, #resultantFood, #secondaryResultantDrink {
-    width:100%;
+    width:80%;
     overflow:visible;
     text-align: center;
     padding: 10px;
@@ -116,54 +114,13 @@ form {
 }
 
 #resultantDrink, #resultantFood {
-    width:80%;
     border-radius:5px;
     overflow:visible;
     margin:auto;
     margin-bottom:15px;
 }
 
-
-footer {
-    background:var(--color3);
-    align-items:center;
-    width: 100%;
-    display:flex;
-    height: auto;
-    bottom:0;
-    color:var(--color2);
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
-}
-
-footer h3 {
-    width:200px;
-    text-align:center;
-}
-
-#devs {
-    align-content:right;
-    width:75px;
-    margin-right:5px;
-    margin-left:auto;
-}
-
-.developer-links {
-    text-align:center;
-    width: 100px;
-    margin-right:5px;
-    margin-left:5px;
-}
-
-#developers a {
-    color:var(--color2);
-    text-decoration:none;
-}
-
-#developers a:hover {
-    color:var(--color4);
-}
-
-@media screen and (max-width: 480px) {
+    @media screen and (max-width: 480px) {
     #card-input{
         height:160px;
     }

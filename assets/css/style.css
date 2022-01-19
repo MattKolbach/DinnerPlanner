@@ -1,14 +1,16 @@
-*{
+* {
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
+
 :root {
     --color1:rgba(85, 85, 85, 0.5);
     --color2:rgb(240, 255, 255);
     --color3:rgba(47, 109, 66, 0.5);
     --color4:rgba(47, 109, 66); /* button hover color */
 }
+
 html, body {
     height: 100%;
     display: flex;
@@ -21,7 +23,6 @@ html, body {
     background-position: center;
     background-attachment: fixed;
     height: 100%;
-    width: auto;
 }
 
 /* NAVIGATION BAR */
@@ -113,31 +114,56 @@ footer {
     align-items:center;
     width: 100%;
     display:flex;
+    flex-wrap: wrap;
     justify-content:space-between;
-    overflow:auto;
     box-sizing:border-box;
-    padding: 30px;
+    padding: 20px;
     margin-top: auto;
+}
+footer h3 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}
+footer div {
+    line-height: 1.5;
+    text-align: right;
+}
+footer a {
+    text-decoration: none;
+    color: white;
+}
+footer a:hover {
+    background-color: var(--color4);
 }
 
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
+    .home-menu {
+        width: 100%;
+        text-align: center;
+    }
     .home-button-container {
         display: flex;
         flex-wrap: wrap;
     }
     .home-button {
         margin: 20px auto;
-        width: 300px;
-        height: 80px;
     }
     .pure-menu-horizontal .pure-menu-list {
         display: block;
+    }
+    footer h3, footer div {
+        text-align: center;
+        width: 100%; 
     }
 }
 
 /* MEDIA QUERY FOR PHONE */
 @media screen and (max-width: 575px) {
+    html, body {
+        height: auto;
+    }
     main {
         width: 100%;
     }
@@ -153,5 +179,8 @@ footer {
     }
     .intro p {
         font-size: 18px;
+    }
+    .home-menu a {
+        font-size: 14px;
     }
 }
