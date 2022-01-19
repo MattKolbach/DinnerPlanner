@@ -2,35 +2,13 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 :root {
     --color1:rgba(85, 85, 85, 0.5);
-    --color2:rgb(255, 255, 255);
+    --color2:rgb(240, 255, 255);
     --color3:rgba(47, 109, 66, 0.5);
-}
-
-header {
-    background:var(--color3);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.856);
-}
-
-
-.pure-menu-link {
-    color:var(--color2);
-}
-
-#title-section {
-    display:flex;
-    justify-content: center; 
-}
-
-#page-header {
-    text-align:center;
-    width:45%;
-    font-size: 70px;
-    font-family: 'Abel', 'Open Sans', sans-serif;
+    --color4:rgba(47, 109, 66); /* button hover color */
 }
 
 #card-container {
@@ -127,47 +105,7 @@ form {
     width:80%;
     border:3px solid var(--color5);
     border-radius:5px;
-    height:300px;
     overflow:visible;
     margin:auto;
     margin-bottom:15px;
-}
-
-footer {
-    background:var(--color3);
-    align-items:center;
-    width: 100%;
-    display:flex;
-    height: auto;
-    bottom:0;
-    color:var(--color2);
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
-}
-
-footer h3 {
-    width:200px;
-    text-align:center;
-}
-
-#devs {
-    align-content:right;
-    width:75px;
-    margin-right:5px;
-    margin-left:auto;
-}
-
-.developer-links {
-    text-align:center;
-    width: 100px;
-    margin-right:5px;
-    margin-left:5px;
-}
-
-#developers a {
-    color:var(--color2);
-    text-decoration:none;
-}
-
-#developers a:hover {
-    color:var(--color4);
 }
