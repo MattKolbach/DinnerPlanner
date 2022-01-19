@@ -2,13 +2,14 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 :root {
-    --color1:rgba(85, 85, 85, 0.5);
-    --color2:rgb(255, 255, 255);
+    --color1:rgba(255, 255, 255, 0.5);
+    --color2:white;
     --color3:rgba(47, 109, 66, 0.5);
+    --color4:turquoise; 
+    --color5:black;
 }
 
 header {
@@ -26,28 +27,20 @@ header {
     justify-content: center; 
 }
 
-#page-header {
-    text-align:center;
-    width:45%;
-    font-size: 70px;
-    font-family: 'Abel', 'Open Sans', sans-serif;
-}
-
 #card-container {
     display:flex;
     justify-content:space-around;
     flex-wrap:wrap;
-    margin: 10px;
 }
 
 #card {
     display:flex;
     justify-content:space-around;
-    background-color:var(--color2);
     border-radius:15px;
     padding-top: 30px;
     padding-bottom: 30px;
     align-items:center;
+    
 }
 
 #card-input {
@@ -72,22 +65,21 @@ form {
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
 }
 
-#userDrink, #userIngredient {  /* text input box */
+.txtbx {  /* text input box */
     margin:auto;
     margin-top:5px;
     margin-bottom:7px;
     width:80%;
 }
 
-#submit-btn {
-    border-radius: 5em;
+.submit-btn {
     border: 1px solid var(--color5);
     background-color:var(--color3);
     color:var(--color2);
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
 }
 
-#submit-btn:hover {
+.submit-btn:hover {
     background-color:var(--color4);
     border: 1px solid var(--color4);
 }
@@ -125,13 +117,12 @@ form {
 
 #resultantDrink, #resultantFood {
     width:80%;
-    border:3px solid var(--color5);
     border-radius:5px;
-    height:300px;
     overflow:visible;
     margin:auto;
     margin-bottom:15px;
 }
+
 
 footer {
     background:var(--color3);
@@ -170,4 +161,10 @@ footer h3 {
 
 #developers a:hover {
     color:var(--color4);
+}
+
+@media screen and (max-width: 480px) {
+    #card-input{
+        height:160px;
+    }
 }
