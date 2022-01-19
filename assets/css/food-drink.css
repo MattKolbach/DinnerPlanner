@@ -9,6 +9,7 @@
     --color2:rgb(240, 255, 255);
     --color3:rgba(47, 109, 66, 0.5);
     --color4:rgba(47, 109, 66); /* button hover color */
+}
 
 header {
     background:var(--color3);
