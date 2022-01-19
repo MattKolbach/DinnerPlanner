@@ -201,15 +201,22 @@ const secondaryResultantDrinkPanel = function (data) {
   favButton.addEventListener("click", saveDrinkToFavorites)
 };
 
-
 var saveToDrinkFavoriteLibrary = function (randomDrink) {
-  const loadDrinkFavorites = localStorage.getItem("drinks");
-  drinks = JSON.parse(loadDrinkFavorites);
   drinks.push(randomDrink)
   localStorage.setItem("drinks", JSON.stringify(drinks)) // saves to local storage
+}
+
+var loadDrinkSearchHistory = function () {
+  var savedDrinks = localStorage.getItem("drinks")
+  if (savedDrinks === null) {
+    return false;
+  }
+  drinks = JSON.parse(savedDrinks)
 }
 
 /////   click listeners   /////
 randomSearchButton.addEventListener("click", getRandomDrinkHandler);
 ingredientSearchButton.addEventListener("click", drinkByIngredientHandler);
 drinkNameSearchButton.addEventListener("click", drinkByNameHandler)
+
+loadDrinkSearchHistory()
