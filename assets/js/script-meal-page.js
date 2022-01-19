@@ -97,7 +97,7 @@ const foodByIngredient = function (event) {
           var newFoodButtonHandler = function (event) {
             event.preventDefault()
             otherFoodEl.innerHTML = "";//clears 
-            var foodID = data.meals[i].idMeals
+            var foodID = data.meals[i].idMeal
             var foodIDUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + foodID
             fetch(foodIDUrl).then(function (response) {
               if (response.ok) {
