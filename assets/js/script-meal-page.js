@@ -23,6 +23,7 @@ const getCuisineHandler = function (event) {
 
   resultantFoodEl.innerHTML = "";
   const searchArea = searchAreaEl.value.trim();
+  otherFoodEl.innerHTML = "";
   
   const cuisineFoodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + searchArea
   if (searchArea) {
@@ -229,9 +230,11 @@ var loadDinnerSearchHistory = function () {
   if (savedDinners === null) {
     return false;
   }
-  drinks = JSON.parse(savedDinners)
+  meals = JSON.parse(savedDinners)
 }
 
 randomSearchButton.addEventListener("click", getRandomFoodHandler);
 searchByAreaButton.addEventListener("click", getCuisineHandler);
 ingredientButton.addEventListener("click", foodByIngredient);
+
+loadDinnerSearchHistory();
