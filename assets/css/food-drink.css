@@ -100,6 +100,7 @@ form {
     overflow:visible;
     text-align: center;
     padding: 10px;
+    margin:auto;
 }
 
 .pure-button {  /* ingredient buttons for "SEARCH BY INGREDIENT API CALL */
@@ -108,6 +109,7 @@ form {
 
 #resultantDrink h3, #secondaryResultantDrink h3 {  /* title of drink */
     color: var(--color3);
+    font-size:24px;
 }
 
 #resultantDrink .drink-instructions, #secondaryResultantDrink .drink-instructions {  /* drink instructions */
