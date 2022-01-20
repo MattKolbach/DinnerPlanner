@@ -84,7 +84,7 @@ form {
 }
 
 #randomSearchButton {
-    position:relative;
+    margin-top:51px;
     background-color:var(--color3);
     color:var(--color2);
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
@@ -126,5 +126,8 @@ form {
     @media screen and (max-width: 480px) {
     #card-input{
         height:160px;
+    }
+    #randomSearchButton {
+        margin-top:30px;
     }
 }
