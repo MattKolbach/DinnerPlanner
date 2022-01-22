@@ -24,7 +24,10 @@ const getCuisineHandler = function (event) {
   resultantFoodEl.innerHTML = "";
   const searchArea = searchAreaEl.value.trim();
   otherFoodEl.innerHTML = "";
-  
+  inputIngredientEl.value = "";
+  inputIngredientEl.innerHTML = "";
+  searchAreaEl.value = "";
+
   const cuisineFoodUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + searchArea
   if (searchArea) {
     resultantFoodEl.innerHTML = "";// clears?
@@ -78,6 +81,8 @@ const foodByIngredient = function (event) {
   resultantFoodEl.innerHTML = "";//clears
   const searchIngredient = inputIngredientEl.value.trim();
   inputIngredientEl.value = "";//clears input field
+  inputIngredientEl.innerHTML = "";
+  searchAreaEl.value = "";
   otherFoodEl.innerHTML = "";
   const inputIngredientUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + searchIngredient;
   console.log(searchIngredient)
@@ -123,6 +128,9 @@ const getRandomFoodHandler = function (event) {
     resultantFoodEl.innerHTML = "";
     console.log("worked");
     otherFoodEl.innerHTML = "";
+    inputIngredientEl.value = "";
+    inputIngredientEl.innerHTML = "";
+    searchAreaEl.value = "";
     const randomFoodUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
     console.log(randomFoodUrl);
     fetch(randomFoodUrl).then(function(response) {
