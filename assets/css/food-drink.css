@@ -84,7 +84,7 @@ form {
 }
 
 #randomSearchButton {
-    position:relative;
+    margin-top:51px;
     background-color:var(--color3);
     color:var(--color2);
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.856);
@@ -95,22 +95,24 @@ form {
     background-color:var(--color4);
 }
 
-#resultantDrink, #resultantFood, #secondaryResultantDrink {
+#resultantDrink, #resultantFood, #secondaryResultantDrink, #otherFoodResult {
     width:80%;
     overflow:visible;
     text-align: center;
     padding: 10px;
+    margin:auto;
 }
 
 .pure-button {  /* ingredient buttons for "SEARCH BY INGREDIENT API CALL */
     margin: 5px;
 }
 
-#resultantDrink h3, #secondaryResultantDrink h3 {  /* title of drink */
+#resultantDrink h3, #secondaryResultantDrink h3, #resultantFood h3, #otherFoodResult h3{  /* title of drink */
     color: var(--color3);
+    font-size:24px;
 }
 
-#resultantDrink .drink-instructions, #secondaryResultantDrink .drink-instructions {  /* drink instructions */
+#resultantDrink .drink-instructions, #secondaryResultantDrink .drink-instructions, #resultantFood .prep-instructions, #otherFoodResult .prep-instructions {  /* drink instructions */
     font-style: italic;
 }
 
@@ -124,5 +126,8 @@ form {
     @media screen and (max-width: 480px) {
     #card-input{
         height:160px;
+    }
+    #randomSearchButton {
+        margin-top:30px;
     }
 }
