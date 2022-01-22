@@ -23,3 +23,4 @@ https://mattkolbach.github.io/DinnerPlanner/
 
 ## Screenshots of Website
 ![ScreenShot](./assets/images/index-screenshot.png)
+![ScreenShot](./assets/images/drinks-screenshot.png)
